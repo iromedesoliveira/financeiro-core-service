@@ -1,0 +1,27 @@
+### 1. Criar transação de Dividendos
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+Authorization: Basic admin senha123
+
+{
+  "descricao": "Dividendos Ações",
+  "valor": 20000.00,
+  "data": "2026-05-30T10:00:00",
+  "categoria": "DIVIDENDOS"
+}
+
+### 2. Criar transação de Day Trade
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+Authorization: Basic admin senha123
+
+{
+  "descricao": "Lucro do Day Trade",
+  "valor": 1000.00,
+  "data": "2026-05-30T10:45:00",
+  "categoria": "DAY_TRADE"
+}
+
+### 3. Listar todas as transações cadastradas
+GET http://localhost:8080/transacoes
+Authorization: Basic admin senha123
