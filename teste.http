@@ -25,3 +25,17 @@ Authorization: Basic admin senha123
 ### 3. Listar todas as transações cadastradas
 GET http://localhost:8080/transacoes
 Authorization: Basic admin senha123
+
+### Listar todas as transações
+GET http://localhost:8080/transacoes
+
+### Criar uma nova transação
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Investimento em Ações",
+  "valor": 120.00,
+  "data": "2026-05-30T19:20:00",
+  "categoria": "Dividendos"
+}
