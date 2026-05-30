@@ -1,0 +1,12 @@
+com\example\tecnologia\dto\TransacaoDTO.class
+com\example\tecnologia\repository\TransacaoRepository.class
+com\example\tecnologia\controller\TransacaoController.class
+com\example\tecnologia\domain\Usuario$UsuarioBuilder.class
+com\example\tecnologia\repository\UsuarioRepository.class
+com\example\tecnologia\DemoApplication.class
+com\example\tecnologia\dto\UsuarioDTO$UsuarioDTOBuilder.class
+com\example\tecnologia\domain\Transacao$TransacaoBuilder.class
+com\example\tecnologia\service\TransacaoService.class
+com\example\tecnologia\domain\Usuario.class
+com\example\tecnologia\domain\Transacao.class
+com\example\tecnologia\dto\UsuarioDTO.class
