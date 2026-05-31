@@ -39,3 +39,17 @@ Content-Type: application/json
   "data": "2026-05-30T19:20:00",
   "categoria": "Dividendos"
 }
+
+### 1. Criar uma Transação (POST)
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Pagamento de Aluguel",
+  "valor": 1200.00,
+  "data": "2026-05-31",
+  "categoria": "MORADIA"
+}
+
+### 2. Listar Transações (GET)
+GET http://localhost:8080/transacoes

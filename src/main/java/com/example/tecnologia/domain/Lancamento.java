@@ -1,44 +1,18 @@
 package com.example.tecnologia.domain;
 
-import jakarta.persistence.*; // Se estiver usando Spring Boot 3+ (Jakarta)
+import jakarta.persistence.*;
+import lombok.*; // Usando Lombok para reduzir o código gigante de Getters/Setters
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "LANCAMENTO") // Nome exato da sua tabela no Oracle
+@Table(name = "LANCAMENTO")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Lancamento {
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public LocalDate getDataVencimento() {
-        return dataVencimento;
-    }
-
-    public void setDataVencimento(LocalDate dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lancamento_seq")
@@ -48,15 +22,9 @@ public class Lancamento {
     @Column(name = "DESCRICAO", nullable = false, length = 100)
     private String descricao;
 
-    @Column(name = "DATA_VENCIMENTO", nullable = false)
+    @Column(name = "DATA_VENCIMENTO", nullable = true)
     private LocalDate dataVencimento;
 
     @Column(name = "VALOR", nullable = false, precision = 19, scale = 2)
     private BigDecimal valor;
-
-    // Construtores, Getters e Setters
-    public Lancamento() {
-    }
-
-    // ... adicione os getters e setters aqui
 }

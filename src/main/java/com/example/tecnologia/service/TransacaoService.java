@@ -23,18 +23,30 @@ public class TransacaoService {
 		return repository.findAll();
 	}
 
+	// Novo: Busca por ID com tratamento de erro
+	public Transacao buscarPorId(Long id) {
+		return repository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Transação não encontrada com o ID: " + id));
+	}
+
+	// Novo: Deleção com verificação de existência
+	public void deletar(Long id) {
+		if (!repository.existsById(id)) {
+			throw new RuntimeException("Transação não encontrada para exclusão.");
+		}
+		repository.deleteById(id);
+	}
+
 	public Transacao salvar(TransacaoDTO dto) {
-		// 1. Busca um usuário padrão para garantir a integridade (ForeignKey)
 		Usuario usuario = usuarioRepository.findById(1L)
 				.orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-		// 2. Constrói a transação usando o padrão Builder (Lombok)
 		Transacao transacao = Transacao.builder()
 				.descricao(dto.descricao())
 				.valor(dto.valor())
 				.data(dto.data())
 				.categoria(dto.categoria())
-				.usuario(usuario) // Vinculando a entidade Usuario
+				.usuario(usuario)
 				.build();
 
 		return repository.save(transacao);
