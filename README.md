@@ -28,8 +28,10 @@ Projeto de backend para gerenciamento financeiro, focado em alta performance, es
 ## 📈 Roadmap (Status de Desenvolvimento)
 - [x] Configuração inicial e infraestrutura básica (Maven/Spring).
 - [x] Integração com banco de dados (Oracle) e testes (H2).
-- [ ] Implementação de camadas de Service e Repositories.
-- [ ] Desenvolvimento de APIs REST com Spring Security.
+- [x] Implementação das camadas Service e Repository.
+- [x] Desenvolvimento de APIs REST (CRUD completo e Tratamento de Erros).
+- [x] Modelagem de relacionamentos (Usuario/Lancamento) com JPA.
+- [ ] Segurança com Spring Security.
 - [ ] Implementação de Frontend (React/Angular).
 - [ ] Containerização com Docker e CI/CD.
 
