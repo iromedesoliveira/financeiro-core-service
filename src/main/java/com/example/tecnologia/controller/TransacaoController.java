@@ -5,6 +5,7 @@ import com.example.tecnologia.dto.TransacaoDTO;
 import com.example.tecnologia.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.tecnologia.dto.TransacaoDTO;
 
 import java.util.List;
 
