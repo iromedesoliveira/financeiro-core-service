@@ -26,14 +26,32 @@ Projeto de backend para gerenciamento financeiro, focado em alta performance, es
    `./mvnw spring-boot:run`
 
 ## 📈 Roadmap (Status de Desenvolvimento)
+
+### Fase 1: Core Service & Base de Dados (Concluído)
 - [x] Configuração inicial e infraestrutura básica (Maven/Spring).
 - [x] Integração com banco de dados (Oracle) e testes (H2).
 - [x] Implementação das camadas Service e Repository.
 - [x] Desenvolvimento de APIs REST (CRUD completo e Tratamento de Erros).
 - [x] Modelagem de relacionamentos (Usuario/Lancamento) com JPA.
-- [ ] Segurança com Spring Security.
-- [ ] Implementação de Frontend (React/Angular).
-- [ ] Containerização com Docker e CI/CD.
 
+### Fase 2: Segurança & Evolução (Em Planejamento)
+- [ ] Segurança com Spring Security (Autenticação e Autorização).
+- [ ] Implementação de DTOs e Validações de entrada.
+- [ ] Refatoração e aplicação de Design Patterns.
+
+### Fase 3: Frontend & Integração
+- [ ] Desenvolvimento de interface utilizando React ou Angular.
+- [ ] Integração do Front com a API via Axios/HttpClient.
+- [ ] Gerenciamento de estado e dashboards financeiros.
+
+### Fase 4: DevOps & Infraestrutura
+- [ ] Containerização com Docker e Docker Compose.
+- [ ] Configuração de perfis de ambiente (Dev/Prod).
+- [ ] Automação de CI/CD via GitHub Actions.
+
+### Fase 5: Testes Finais, Refinamento & Entrega
+- [ ] Aumento da cobertura de testes (JUnit/Mockito).
+- [ ] Observabilidade, logs estruturados e monitoramento.
+- [ ] Otimização de performance e deploy final.
 ## ✒️ Autor
 Iromedes C. de Oliveira - Desenvolvedor Full Stack Sênior
