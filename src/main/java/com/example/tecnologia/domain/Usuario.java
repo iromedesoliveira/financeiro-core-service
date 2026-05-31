@@ -1,15 +1,16 @@
 package com.example.tecnologia.domain;
 
 import jakarta.persistence.*;
-import lombok.*; // Importa todas as anotações do Lombok
+import lombok.*;
+import java.util.List; // Não esqueça deste import!
 
 @Entity
 @Table(name = "tb_usuario")
 @Getter
-@Setter // Gera todos os getters e setters automaticamente
-@NoArgsConstructor // Gera construtor vazio
-@AllArgsConstructor // Gera construtor com todos os campos
-@Builder // Padrão Sênior: permite criar objetos de forma fluida
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Usuario {
 
     @Id
@@ -23,5 +24,11 @@ public class Usuario {
     private String email;
 
     @Column(nullable = false)
+    @ToString.Exclude // Opcional: evita que a senha apareça em logs de erro
     private String senha;
+
+    // --- COLE ISSO AQUI NO FINAL, ANTES DA ÚLTIMA CHAVE DA CLASSE ---
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Lancamento> lancamentos;
+    // ----------------------------------------------------------------
 }

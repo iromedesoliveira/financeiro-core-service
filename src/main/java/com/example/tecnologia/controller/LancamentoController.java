@@ -43,4 +43,11 @@ public class LancamentoController {
         Lancamento salvo = service.atualizar(id, lancamento);
         return ResponseEntity.ok(salvo);
     }
+
+    // Adicione este método para poder buscar por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Lancamento> buscarPorId(@PathVariable Long id) {
+        Lancamento lancamento = service.buscarPorId(id);
+        return ResponseEntity.ok(lancamento);
+    }
 }

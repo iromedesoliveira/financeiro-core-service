@@ -27,4 +27,8 @@ public class Lancamento {
 
     @Column(name = "VALOR", nullable = false, precision = 19, scale = 2)
     private BigDecimal valor;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false) // Garante que todo lançamento tenha um usuário
+    private Usuario usuario;
 }

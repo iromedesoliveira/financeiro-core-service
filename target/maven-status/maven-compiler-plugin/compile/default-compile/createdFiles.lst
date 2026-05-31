@@ -9,10 +9,12 @@ com\example\tecnologia\DemoApplication.class
 com\example\tecnologia\dto\UsuarioDTO$UsuarioDTOBuilder.class
 com\example\tecnologia\domain\Transacao$TransacaoBuilder.class
 com\example\tecnologia\service\TransacaoService.class
+com\example\tecnologia\exception\ResourceNotFoundException.class
 com\example\tecnologia\repository\LancamentoRepository.class
 com\example\tecnologia\service\LancamentoService.class
 com\example\tecnologia\domain\Lancamento$LancamentoBuilder.class
 com\example\tecnologia\controller\LancamentoController.class
 com\example\tecnologia\domain\Usuario.class
 com\example\tecnologia\domain\Transacao.class
+com\example\tecnologia\exception\GlobalExceptionHandler.class
 com\example\tecnologia\dto\UsuarioDTO.class
