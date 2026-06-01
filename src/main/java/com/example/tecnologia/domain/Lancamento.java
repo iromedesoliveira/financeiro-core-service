@@ -5,6 +5,8 @@ import lombok.*; // Usando Lombok para reduzir o código gigante de Getters/Sett
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "LANCAMENTO")
 @Getter
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+
 public class Lancamento {
 
     @Id
@@ -28,7 +32,7 @@ public class Lancamento {
     @Column(name = "VALOR", nullable = false, precision = 19, scale = 2)
     private BigDecimal valor;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false) // Garante que todo lançamento tenha um usuário
+    @ManyToOne(optional = true) // <--- O "optional = true" é a chave aqui
+    @JoinColumn(name = "usuario_id", nullable = true)
     private Usuario usuario;
 }
