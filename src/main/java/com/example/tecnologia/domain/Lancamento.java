@@ -33,6 +33,6 @@ public class Lancamento {
     private BigDecimal valor;
 
     @ManyToOne(optional = true) // <--- O "optional = true" é a chave aqui
-    @JoinColumn(name = "usuario_id", nullable = true)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 }

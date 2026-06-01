@@ -5,6 +5,7 @@ D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\DemoApplicat
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Lancamento.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Transacao.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Usuario.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\LancamentoDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\TransacaoDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\UsuarioDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\exception\GlobalExceptionHandler.java
