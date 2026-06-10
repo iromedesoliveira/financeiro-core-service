@@ -32,7 +32,7 @@ public class Lancamento {
     @Column(name = "VALOR", nullable = false, precision = 19, scale = 2)
     private BigDecimal valor;
 
-    @ManyToOne(optional = true) // <--- O "optional = true" é a chave aqui
+    @ManyToOne(optional = false) // <--- O "optional = true" é a chave aqui
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 }

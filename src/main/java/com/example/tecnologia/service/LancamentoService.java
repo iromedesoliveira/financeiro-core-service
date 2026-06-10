@@ -8,6 +8,8 @@ import com.example.tecnologia.repository.UsuarioRepository; // Adicione este imp
 import com.example.tecnologia.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.math.BigDecimal; // Necessário para o cálculo financeiro
+import java.time.LocalDate; // Necessário para a data do lançamento
 import java.util.List;
 
 @Service
@@ -92,5 +94,24 @@ public class LancamentoService {
             throw new ResourceNotFoundException("Não foi possível remover: ID " + id + " não encontrado.");
         }
         repository.deleteById(id);
+    }
+
+    // Adicione este método ao seu LancamentoService
+    public void realizarDistribuicaoInvestimento(Long usuarioId, BigDecimal valorTotal) {
+        BigDecimal trintaPorcento = new BigDecimal("0.30");
+        BigDecimal quarentaPorcento = new BigDecimal("0.40");
+
+        // 1. Cálculos
+        BigDecimal reserva = valorTotal.multiply(trintaPorcento);
+        BigDecimal dividendos = valorTotal.multiply(trintaPorcento);
+        BigDecimal dayTrade = valorTotal.multiply(quarentaPorcento);
+
+        // 2. Criar os DTOs ou Entidades (Assumindo que você quer salvar como
+        // Lancamentos)
+        salvar(new LancamentoDTO(null, "Reserva de Emergência", LocalDate.now(), reserva, usuarioId));
+        salvar(new LancamentoDTO(null, "Ações para Dividendos", LocalDate.now(), dividendos, usuarioId));
+        salvar(new LancamentoDTO(null, "Capital para Day Trade", LocalDate.now(), dayTrade, usuarioId));
+
+        System.out.println("Distribuição de R$ " + valorTotal + " realizada com sucesso!");
     }
 }

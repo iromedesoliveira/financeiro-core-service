@@ -1,17 +1,18 @@
 package com.example.tecnologia.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LancamentoDTO {
     private Long id;
     private String descricao;
     private LocalDate dataVencimento;
     private BigDecimal valor;
-    private Long usuarioId; // Note que aqui usamos apenas o ID, não o objeto Usuario
-
+    private Long usuarioId;
 }

@@ -1,4 +1,6 @@
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\config\SecurityConfig.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\LancamentoController.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\LucroController.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\TransacaoController.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\DataInitializer.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\DemoApplication.java
@@ -10,8 +12,11 @@ D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\Transaca
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\UsuarioDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\exception\GlobalExceptionHandler.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\exception\ResourceNotFoundException.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\model\Lucro.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\LancamentoRepository.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\LucroRepository.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\TransacaoRepository.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\UsuarioRepository.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\service\LancamentoService.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\service\LucroService.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\service\TransacaoService.java
