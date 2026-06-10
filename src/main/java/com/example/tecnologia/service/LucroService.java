@@ -16,8 +16,16 @@ public class LucroService {
         this.repository = repository;
     }
 
+    public java.util.List<Lucro> listarTodos() {
+        return repository.findAll();
+    }
+
     @Transactional
     public void processarNovoLucro(BigDecimal valorTotal) {
+
+        if (valorTotal == null || valorTotal.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("O valor do lucro deve ser positivo.");
+        }
         // Aplicação da sua estratégia de 30/30/40
         BigDecimal savings = valorTotal.multiply(new BigDecimal("0.30"));
         BigDecimal dividendos = valorTotal.multiply(new BigDecimal("0.30"));
