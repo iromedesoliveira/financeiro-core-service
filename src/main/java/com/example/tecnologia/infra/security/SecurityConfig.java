@@ -3,6 +3,7 @@ package com.example.tecnologia.infra.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,11 +27,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
-                    // Aqui estamos dizendo que, por enquanto, tudo é permitido.
-                    // Na fase final, restringiremos as rotas de login aqui.
-                    req.anyRequest().permitAll();
+                    // Rota de login pública
+                    req.requestMatchers(HttpMethod.POST, "/login").permitAll();
+                    // Todas as outras rotas exigem autenticação
+                    req.anyRequest().authenticated();
                 })
-                // Registra o seu filtro de segurança antes do filtro de autenticação padrão
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
