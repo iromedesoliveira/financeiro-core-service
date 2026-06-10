@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -15,18 +16,17 @@ public class DemoApplication {
     }
 
     @Bean
-    CommandLineRunner initData(UsuarioRepository usuarioRepository) {
+    CommandLineRunner initData(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         return args -> {
-            if (usuarioRepository.count() == 0) {
-                Usuario usuario = Usuario.builder()
-                        .nome("Iromedes")
-                        .email("iromedes@email.com")
-                        .senha("123456")
-                        .build();
+            usuarioRepository.deleteAll();
+            Usuario usuario = Usuario.builder()
+                    .nome("Iromedes")
+                    .email("iromedes@email.com")
+                    .senha(passwordEncoder.encode("123456"))
+                    .build();
 
-                usuarioRepository.save(usuario);
-                System.out.println("Usuário inicial criado automaticamente!");
-            }
+            usuarioRepository.save(usuario);
+            System.out.println(">>> USUÁRIO RESETADO E CRIADO COM SUCESSO!");
         };
     }
 }

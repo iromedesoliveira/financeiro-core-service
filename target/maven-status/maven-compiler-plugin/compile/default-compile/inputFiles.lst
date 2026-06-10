@@ -1,4 +1,4 @@
-D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\config\SecurityConfig.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\AutenticacaoController.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\LancamentoController.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\LucroController.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\controller\TransacaoController.java
@@ -7,11 +7,17 @@ D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\DemoApplicat
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Lancamento.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Transacao.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\domain\Usuario.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\DadosAutenticacaoDTO.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\DadosTokenJWT.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\LancamentoDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\TransacaoDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\dto\UsuarioDTO.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\exception\GlobalExceptionHandler.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\exception\ResourceNotFoundException.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\infra\security\AutenticacaoService.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\infra\security\SecurityConfig.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\infra\security\SecurityFilter.java
+D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\infra\security\TokenService.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\model\Lucro.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\LancamentoRepository.java
 D:\dev\financeiro-core-service\src\main\java\com\example\tecnologia\repository\LucroRepository.java
