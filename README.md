@@ -1,5 +1,16 @@
 Financeiro Core Service
-Projeto de backend para gerenciamento financeiro, focado em alta performance, escalabilidade e manutenibilidade. Desenvolvido para servir como uma base robusta para serviços financeiros, utilizando práticas de Clean Code e arquitetura orientada a serviços.
+🎯 Visão de Engenharia
+Este projeto é uma arquitetura de referência para serviços financeiros, projetada para atender requisitos rigorosos de segurança, integridade de dados e auditoria. O sistema adota os princípios de Clean Architecture para garantir que as regras de negócio permaneçam desacopladas de frameworks e infraestrutura.
+
+Ao final deste roadmap, o Financeiro Core Service será uma solução robusta capaz de:
+
+Consistência Transacional: Assegurar a integridade de registros financeiros via JPA/Hibernate otimizado.
+
+Segurança de Nível Corporativo: Autenticação stateless via JWT, garantindo proteção de dados sensíveis.
+
+Observabilidade e Resiliência: Tratamento de erros centralizado e rastreável, reduzindo o tempo de depuração e melhorando a experiência do cliente final.
+
+Escalabilidade DevOps: Preparado para orquestração em containers e entregas automatizadas via CI/CD.
 
 🚀 Tecnologias e Ferramentas
 Java 21
@@ -15,25 +26,22 @@ JUnit 5 & Mockito (Testes Automatizados)
 Lombok (Redução de boilerplate)
 
 🛠 Arquitetura e Diferenciais
-Testes de Integração: Implementação de ambiente de testes isolado usando H2 em memória, garantindo build rápido e seguro.
+Testes de Integração: Implementação de ambiente de testes isolado usando H2, garantindo segurança em cada build.
 
-Camada de Dados: Uso de JPA/Hibernate com estratégias de persistência otimizadas para Oracle.
+Camada de Dados: Estratégias de persistência otimizadas para Oracle Database.
 
-Padrões de Projeto: Aplicação de princípios SOLID e padrões de Clean Architecture.
+Padrões de Projeto: Aplicação rigorosa de SOLID e Design Patterns.
 
-Versionamento: Fluxo de trabalho baseado em boas práticas de Git/GitFlow.
+Versionamento: Fluxo de trabalho baseado em GitFlow.
 
 📋 Como rodar o projeto
-Clone o repositório:
-git clone https://github.com/iromedesoliveira/financeiro-core-service.git
+Clone o repositório: git clone https://github.com/iromedesoliveira/financeiro-core-service.git
 
 Certifique-se de ter o JDK 21 instalado.
 
-Para rodar os testes:
-./mvnw clean test
+Rodar testes: ./mvnw clean test
 
-Para rodar a aplicação:
-run.bat (configurado com variáveis de ambiente)
+Rodar aplicação: run.bat (verifique as variáveis de ambiente necessárias).
 
 📈 Roadmap (Status de Desenvolvimento)
 Fase 1: Core Service & Base de Dados (Concluído)
@@ -45,13 +53,14 @@ Fase 1: Core Service & Base de Dados (Concluído)
 [x] Modelagem de relacionamentos (Usuario/Lancamento) com JPA.
 
 Fase 2: Segurança & Evolução (Concluído)
+
 [x] Segurança com Spring Security (Autenticação e Autorização).
 [x] Implementação de DTOs e Validações de entrada.
 [x] Refatoração e aplicação de Design Patterns.
 
 Fase 3: Frontend & Integração
 
-[ ] Desenvolvimento de interface utilizando React ou Angular.
+[ ] Desenvolvimento de interface (React/Angular).
 [ ] Integração do Front com a API via Axios/HttpClient.
 [ ] Gerenciamento de estado e dashboards financeiros.
 
@@ -67,5 +76,5 @@ Fase 5: Testes Finais, Refinamento & Entrega
 [ ] Observabilidade, logs estruturados e monitoramento.
 [ ] Otimização de performance e deploy final.
 
-##✒️ Autor
+✒️ Autor
 Iromedes C. de Oliveira - Desenvolvedor Full Stack Sênior
