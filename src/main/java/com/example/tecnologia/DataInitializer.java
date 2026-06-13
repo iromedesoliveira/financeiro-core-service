@@ -14,14 +14,16 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Verifica se não há usuários para não duplicar o admin a cada inicialização
         if (usuarioRepository.count() == 0) {
-            Usuario admin = new Usuario();
-            admin.setId(1L);
-            admin.setNome("Administrador");
-            admin.setEmail("admin@exemplo.com");
-            admin.setSenha("senha123");
+            Usuario admin = Usuario.builder()
+                    .nome("Administrador")
+                    .email("admin@exemplo.com")
+                    .senha("senha123")
+                    .build();
+
             usuarioRepository.save(admin);
-            System.out.println("Usuário admin criado com sucesso!");
+            System.out.println(">>> USUÁRIO ADMIN CRIADO COM SUCESSO!");
         }
     }
 }

@@ -27,10 +27,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
-                    // Rota de login pública
-                    req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                    // Todas as outras rotas exigem autenticação
-                    req.anyRequest().authenticated();
+                    // Rotas públicas
+                    req.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                            .requestMatchers("/lucros/**").permitAll()
+                            .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+
+                            // Rotas privadas (exige autenticação)
+                            .requestMatchers("/lancamentos/**").authenticated()
+                            .anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

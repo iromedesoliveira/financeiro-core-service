@@ -18,7 +18,8 @@ import java.util.List;
 public class Usuario implements UserDetails { // <-- IMPLEMENTAÇÃO DO SPRING SECURITY
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
+    @SequenceGenerator(name = "usuario_seq", sequenceName = "TB_USUARIO_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(nullable = false)
