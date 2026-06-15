@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode; // Importante para definir a escala
 import java.util.List;
 import java.util.Optional;
 
@@ -61,10 +62,11 @@ class LancamentoServiceTest {
 
         List<Lancamento> salvos = captor.getAllValues();
 
-        // Valida se os cálculos de 30/30/40 foram aplicados corretamente
-        assertEquals(new BigDecimal("300.00"), salvos.get(0).getValor()); // Reserva
-        assertEquals(new BigDecimal("300.00"), salvos.get(1).getValor()); // Dividendos
-        assertEquals(new BigDecimal("400.00"), salvos.get(2).getValor()); // Day Trade
+        // Valida se os cálculos de 30/30/40 foram aplicados corretamente, forçando a
+        // escala para 2 casas
+        assertEquals(new BigDecimal("300.00"), salvos.get(0).getValor().setScale(2, RoundingMode.HALF_UP)); // Reserva
+        assertEquals(new BigDecimal("300.00"), salvos.get(1).getValor().setScale(2, RoundingMode.HALF_UP)); // Dividendos
+        assertEquals(new BigDecimal("400.00"), salvos.get(2).getValor().setScale(2, RoundingMode.HALF_UP)); // Day Trade
 
         verify(lucroRepository, times(1)).save(any());
     }

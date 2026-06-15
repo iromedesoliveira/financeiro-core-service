@@ -3,23 +3,18 @@ package com.example.tecnologia;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
-/**
- * Este teste garante que o contexto do Spring carregue corretamente com as
- * configurações de teste.
- * É a primeira linha de defesa contra erros de configuração no
- * application-test.properties.
- */
 @SpringBootTest
-@ActiveProfiles("test") // Garante que o Spring carregue apenas o perfil de teste (H2)
+@ActiveProfiles("test")
+@TestPropertySource(properties = {
+		"spring.datasource.url=jdbc:h2:mem:testdb",
+		"spring.datasource.driverClassName=org.h2.Driver"
+})
 class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
-		// Se este teste passar, significa que:
-		// 1. O Spring conseguiu subir o contexto.
-		// 2. As dependências (Services, Controllers, Repositories) foram injetadas.
-		// 3. O banco H2 foi conectado com sucesso.
+		// Agora forçamos o Spring a usar essa URL de banco em memória
 	}
-
 }
