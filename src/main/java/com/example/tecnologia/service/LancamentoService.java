@@ -6,6 +6,9 @@ import com.example.tecnologia.model.Lucro;
 import com.example.tecnologia.dto.LancamentoDTO;
 import com.example.tecnologia.repository.LancamentoRepository;
 import com.example.tecnologia.repository.UsuarioRepository;
+
+import lombok.RequiredArgsConstructor;
+
 import com.example.tecnologia.repository.LucroRepository;
 import com.example.tecnologia.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +20,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class LancamentoService {
 
-    @Autowired
-    private LancamentoRepository repository;
+    private final LancamentoRepository repository;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private LucroRepository lucroRepository;
+    private final LucroRepository lucroRepository;
 
     // --- MÉTODOS DE CONVERSÃO ---
 

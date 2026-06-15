@@ -15,24 +15,27 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario implements UserDetails { // <-- IMPLEMENTAÇÃO DO SPRING SECURITY
+public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
-    @SequenceGenerator(name = "usuario_seq", sequenceName = "TB_USUARIO_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "senha", nullable = false)
     @ToString.Exclude
     private String senha;
 
-    // Métodos da interface UserDetails
+    @Enumerated(EnumType.STRING)
+    @Column(name = "perfil_investidor", nullable = false)
+    private PerfilInvestidor perfilInvestidor;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
@@ -46,7 +49,7 @@ public class Usuario implements UserDetails { // <-- IMPLEMENTAÇÃO DO SPRING S
     @Override
     public String getUsername() {
         return this.email;
-    } // Usando email como login
+    }
 
     @Override
     public boolean isAccountNonExpired() {

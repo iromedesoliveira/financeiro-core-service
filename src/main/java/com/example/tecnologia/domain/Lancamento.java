@@ -1,38 +1,36 @@
 package com.example.tecnologia.domain;
 
 import jakarta.persistence.*;
-import lombok.*; // Usando Lombok para reduzir o código gigante de Getters/Setters
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "LANCAMENTO")
+@Table(name = "tb_transacao")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-
 public class Lancamento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lancamento_seq")
-    @SequenceGenerator(name = "lancamento_seq", sequenceName = "SQ_LANCAMENTO", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "DESCRICAO", nullable = false, length = 100)
+    @Column(name = "descricao", nullable = false, length = 100)
     private String descricao;
 
-    @Column(name = "DATA_VENCIMENTO", nullable = true)
+    @Column(name = "data_vencimento", nullable = true)
     private LocalDate dataVencimento;
 
-    @Column(name = "VALOR", nullable = false, precision = 19, scale = 2)
+    @Column(name = "valor", nullable = false, precision = 19, scale = 2)
     private BigDecimal valor;
 
-    @ManyToOne(optional = false) // <--- O "optional = true" é a chave aqui
+    @ManyToOne(optional = false)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 }
