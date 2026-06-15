@@ -8,10 +8,13 @@ import com.example.tecnologia.repository.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -31,7 +34,7 @@ class LancamentoServiceTest {
     }
 
     @Test
-    @DisplayName("Deve realizar a distribuição de investimentos corretamente")
+    @DisplayName("Deve realizar a distribuição de investimentos corretamente (30/30/40)")
     void deveRealizarDistribuicaoInvestimento() {
         // Arrange
         Long usuarioId = 1L;
@@ -41,13 +44,10 @@ class LancamentoServiceTest {
 
         when(usuarioRepository.findById(usuarioId)).thenReturn(Optional.of(usuario));
 
-        // CORREÇÃO: O mock deve retornar a entidade com um ID para evitar o
-        // NullPointerException
-        // no método toDTO() do seu service.
         when(repository.save(any(Lancamento.class))).thenAnswer(invocation -> {
             Lancamento entity = invocation.getArgument(0);
             if (entity.getId() == null) {
-                entity.setId(1L); // Simula o ID gerado pelo banco
+                entity.setId(1L);
             }
             return entity;
         });
@@ -56,7 +56,16 @@ class LancamentoServiceTest {
         service.realizarDistribuicaoInvestimento(usuarioId, valorTotal);
 
         // Assert
-        verify(repository, times(3)).save(any(Lancamento.class));
+        ArgumentCaptor<Lancamento> captor = ArgumentCaptor.forClass(Lancamento.class);
+        verify(repository, times(3)).save(captor.capture());
+
+        List<Lancamento> salvos = captor.getAllValues();
+
+        // Valida se os cálculos de 30/30/40 foram aplicados corretamente
+        assertEquals(new BigDecimal("300.00"), salvos.get(0).getValor()); // Reserva
+        assertEquals(new BigDecimal("300.00"), salvos.get(1).getValor()); // Dividendos
+        assertEquals(new BigDecimal("400.00"), salvos.get(2).getValor()); // Day Trade
+
         verify(lucroRepository, times(1)).save(any());
     }
 }

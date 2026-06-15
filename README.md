@@ -43,6 +43,60 @@ Rodar testes: ./mvnw clean test
 
 Rodar aplicação: run.bat (verifique as variáveis de ambiente necessárias).
 
+Financeiro Core Service
+Este projeto é uma arquitetura de referência para serviços financeiros, projetada para atender requisitos rigorosos de segurança, integridade de dados e auditoria. O sistema adota os princípios de Clean Architecture para garantir que as regras de negócio permaneçam desacopladas de frameworks e infraestrutura.
+
+🎯 Visão de Engenharia
+Ao final deste roadmap, o Financeiro Core Service será uma solução robusta capaz de:
+
+Consistência Transacional: Assegurar a integridade de registros financeiros via JPA/Hibernate otimizado.
+
+Segurança de Nível Corporativo: Autenticação stateless via JWT, garantindo proteção de dados sensíveis.
+
+Observabilidade e Resiliência: Tratamento de erros centralizado e rastreável.
+
+Escalabilidade DevOps: Preparado para orquestração em containers e entregas automatizadas.
+
+🚀 Tecnologias e Ferramentas
+Linguagem: Java 21
+
+Framework: Spring Boot 3.4.3
+
+Persistência: Spring Data JPA & Hibernate
+
+Banco de Dados: Oracle (Produção) / H2 (Testes)
+
+Testes: JUnit 5 & Mockito
+
+Utilitários: Lombok
+
+🔑 Configuração de Ambiente
+Para rodar a aplicação, defina as variáveis: NV_PASSWORD e API_SECURITY_TOKEN_SECRET.
+
+🛠 Arquitetura e Diferenciais
+Testes de Integração: Ambiente isolado com H2 para validação em CI.
+
+Camada de Dados: Estratégias de persistência otimizadas para Oracle.
+
+Padrões de Projeto: Aplicação rigorosa de SOLID e Design Patterns.
+
+Versionamento: Fluxo de trabalho baseado em GitFlow.
+
+📋 Como Rodar o Projeto
+Clonar o repositório:
+
+Bash
+git clone https://github.com/iromedesoliveira/financeiro-core-service.git
+Rodar os testes automatizados:
+
+Bash
+./mvnw clean test
+Rodar a aplicação:
+
+Comando Universal: ./mvnw spring-boot:run
+
+Atalho Windows: run.bat (certifique-se de que as variáveis de ambiente necessárias estejam configuradas).
+
 📈 Roadmap (Status de Desenvolvimento)
 Fase 1: Core Service & Base de Dados (Concluído)
 
@@ -60,7 +114,7 @@ Fase 2: Segurança & Evolução (Concluído)
 
 Fase 3: Frontend & Integração
 
-[ ] Desenvolvimento de interface (React/Angular).
+[x] Desenvolvimento de interface (React/Angular).
 [ ] Integração do Front com a API via Axios/HttpClient.
 [ ] Gerenciamento de estado e dashboards financeiros.
 
