@@ -11,11 +11,12 @@ if "%NV_PASSWORD%"=="" (
 
 :: Verifica se a variavel de ambiente API_SECURITY_TOKEN_SECRET existe
 if "%API_SECURITY_TOKEN_SECRET%"=="" (
-    echo [AVISO] Variavel API_SECURITY_TOKEN_SECRET nao encontrada. Usando valor padrao de desenvolvimento.
-    set API_SECURITY_TOKEN_SECRET=API0123456789
+    echo [AVISO] Variavel API_SECURITY_TOKEN_SECRET nao encontrada. Usando valor padrao.
+    set API_SECURITY_TOKEN_SECRET=12345678901234567890123456789012
 )
 
-:: Executa a aplicacao passando as variaveis de ambiente para a JVM
-mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-DAPI_SECURITY_TOKEN_SECRET=%API_SECURITY_TOKEN_SECRET%"
+:: Executa a aplicacao passando as variaveis de ambiente e o perfil oracle
+echo Executando com perfil: oracle...
+mvnw spring-boot:run -Dspring-boot.run.profiles=oracle -Dspring-boot.run.jvmArguments="-DAPI_SECURITY_TOKEN_SECRET=%API_SECURITY_TOKEN_SECRET% -DNV_PASSWORD=%NV_PASSWORD%"
 
 pause

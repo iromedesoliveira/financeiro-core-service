@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -20,6 +21,9 @@ public class DemoApplication {
         log.info("--- APLICAÇÃO INICIADA COM SUCESSO ---");
         log.info("Perfis ativos: {}", Arrays.toString(env.getActiveProfiles()));
         log.info("URL do Banco configurada: {}", env.getProperty("spring.datasource.url"));
+
+        // Geração do Hash para a senha 123456
+        log.info("HASH DA SENHA 123456: " + new BCryptPasswordEncoder().encode("123456"));
 
         // Dica: Adicione este aviso se o perfil estiver vazio para evitar surpresas
         if (env.getActiveProfiles().length == 0) {
