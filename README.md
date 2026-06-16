@@ -25,6 +25,14 @@ JUnit 5 & Mockito (Testes Automatizados)
 
 Lombok (Redução de boilerplate)
 
+💼 Regras de Negócio (Alocação Dinâmica)
+O sistema processa lucros aplicando estratégias de alocação de capital baseadas no perfil do investidor:
+
+Perfil,Poupança,Dividendos,Reinvestimento
+CONSERVADOR,80%,20%,0%
+MODERADO,50%,40%,10%
+AGRESSIVO,30%,30%,40%
+
 🛠 Arquitetura e Diferenciais
 Testes de Integração: Implementação de ambiente de testes isolado usando H2, garantindo segurança em cada build.
 
