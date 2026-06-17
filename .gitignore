@@ -1,1 +1,25 @@
-target/ 
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# IDEs e Editores
+.idea/
+.settings/
+.classpath
+.project
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.bak
