@@ -1,13 +1,13 @@
 package com.example.tecnologia.controller;
 
-import com.example.tecnologia.domain.Usuario; // Import necessário
+import com.example.tecnologia.domain.Usuario;
 import com.example.tecnologia.dto.LancamentoDTO;
 import com.example.tecnologia.service.LancamentoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal; // Import necessário
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/lancamentos")
+@CrossOrigin(origins = "http://localhost:5173")
 @Tag(name = "Financeiro", description = "Endpoints para gerenciamento de lançamentos e investimentos")
 public class LancamentoController {
 

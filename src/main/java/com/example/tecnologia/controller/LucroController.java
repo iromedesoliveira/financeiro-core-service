@@ -9,6 +9,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/lucros")
+@CrossOrigin(origins = "http://localhost:5173")
 public class LucroController {
 
     private final LucroService lucroService;
@@ -17,7 +18,6 @@ public class LucroController {
         this.lucroService = lucroService;
     }
 
-    // Agora recebemos um JSON no corpo da requisição (mais seguro e flexível)
     @PostMapping("/processar")
     public String processar(@RequestBody Map<String, Object> payload) {
         BigDecimal valor = new BigDecimal(payload.get("valorTotal").toString());

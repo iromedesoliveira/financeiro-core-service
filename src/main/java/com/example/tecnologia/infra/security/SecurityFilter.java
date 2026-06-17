@@ -26,12 +26,16 @@ public class SecurityFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        // Libera requisições de pré-verificação (OPTIONS) do CORS
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         var tokenJWT = recuperarToken(request);
 
         if (tokenJWT != null) {
             var subject = tokenService.getSubject(tokenJWT);
-
-            // Busca o usuário de forma segura. Se não achar, não autentica.
             var usuario = repository.findByEmail(subject);
 
             if (usuario.isPresent()) {

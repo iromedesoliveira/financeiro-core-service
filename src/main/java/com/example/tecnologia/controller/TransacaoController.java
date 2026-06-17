@@ -2,7 +2,7 @@ package com.example.tecnologia.controller;
 
 import com.example.tecnologia.domain.Transacao;
 import com.example.tecnologia.service.TransacaoService;
-import com.example.tecnologia.dto.TransacaoDTO; // Apenas este import é necessário
+import com.example.tecnologia.dto.TransacaoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transacoes")
+@CrossOrigin(origins = "http://localhost:5173")
 public class TransacaoController {
 
     @Autowired
